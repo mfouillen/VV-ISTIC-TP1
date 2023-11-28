@@ -11,3 +11,40 @@
 5.  Shortly after the appearance of WebAssembly another paper proposed a mechanized specification of the language using Isabelle. The paper can be consulted here: https://www.cl.cam.ac.uk/~caw77/papers/mechanising-and-verifying-the-webassembly-specification.pdf. This mechanized specification complements the first formalization attempt from the paper. According to the author of this second paper, what are the main advantages of the mechanized specification? Did it help improving the original formal specification of the language? What other artifacts were derived from this mechanized specification? How did the author verify the specification? Does this new specification removes the need for testing?
 
 ## Answers
+
+### Question 1
+The choosen article is [Data from August Breach of Amazon Partner Juspay Dumped Online](https://threatpost.com/data-from-august-breach-of-amazon-partner-juspay-dumped-online/162740/). 
+A secutity researcher found a huge data breach from an third party software which deals about online payement handling. Indeed, informations such as name, phone number, bank name were exposed. 
+
+The bug seems like local because threat actors used an old, unrecycled Amazon Web Services (AWS) access key to gain unauthorized access to the server. Which mean the bug went in first place from an Amazon issue. 
+
+The bug sum up by unhotorized use of data which triggered an alerte from Juspay due to an overuse of internal ressources.
+
+For the companie, this bug forced them to enhence their API and revalidate some key. Futhermore they lost a lot of customer confident. For the customers, their info has been lost in world wide web and the info came to them a long time after the issue has been discovered. The society minimzed the leak which was actually a big loss of data.
+
+This bug showed us the importance of alerte in a project bug this also showed that a review of old functionnaliie is very important for old project that had updates.
+
+### Question 2
+The choosen issue is [StackOverflowError in SetUniqueList.add() when it receives itself](https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-701?filter=doneissues).
+It's a local bug that happen in a class which implements List but without duplicates elements (such as a Set).
+The bug was detected by a unit test and it's a StackOverflowError happening in SetUniqueList.add() when it receives itself such as following :
+```java
+test() {        
+   SetUniqueList l = new SetUniqueList(new LinkedList<Object>()) ;        
+   l.add((Object) l) ;    
+}
+```
+SetUniqueList has a Set attribute, the method is recursive but it is called before adding the object to the set. To correct this problem, the object is first added to the set before recursion is called.
+```java
+@Override
+public void add(final int index, final E object) {
+
+    // adds element if it is not contained already
+    if (set.contains(object) == false) {
+-       super.add(index, object);
+        set.add(object);
++       super.add(index, object);
+    }
+}
+```
+Futhermore new tests have been added to ensure that the bug is detected if it reappears in the future.
