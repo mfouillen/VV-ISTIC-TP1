@@ -11,3 +11,16 @@
 5.  Shortly after the appearance of WebAssembly another paper proposed a mechanized specification of the language using Isabelle. The paper can be consulted here: https://www.cl.cam.ac.uk/~caw77/papers/mechanising-and-verifying-the-webassembly-specification.pdf. This mechanized specification complements the first formalization attempt from the paper. According to the author of this second paper, what are the main advantages of the mechanized specification? Did it help improving the original formal specification of the language? What other artifacts were derived from this mechanized specification? How did the author verify the specification? Does this new specification removes the need for testing?
 
 ## Answers
+
+1) A secutity researcher found a huge data breach from an third party software which deals about online payement handling. Indeed, informations such as name, phone number, bank name were exposed.
+
+The bug seems like local because threat actors used an old, unrecycled Amazon Web Services (AWS) access key to gain unauthorized access to the server. Which mean the bug went in first place from an Amazon issue. 
+
+The bug sum up by unhotorized use of data which triggered an alerte from Juspay due to an overuse of internal ressources.
+
+For the companie, this bug forced them to enhence their API and revalidate some key. Futhermore they lost a lot of customer confident. For the customers, their info has been lost in world wide web and the info came to them a long time after the issue has been discovered. The society minimzed the leak which was actually a big loss of data.
+
+This bug showed us the importance of alerte in a project bug this also showed that a review of old functionnaliie is very important for old project that had updates.
+
+Source : https://threatpost.com/data-from-august-breach-of-amazon-partner-juspay-dumped-online/162740/
+
