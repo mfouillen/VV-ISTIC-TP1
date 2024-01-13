@@ -12,7 +12,10 @@
 
 ## Answers
 
-1) A secutity researcher found a huge data breach from an third party software which deals about online payement handling. Indeed, informations such as name, phone number, bank name were exposed.
+### Question 1
+The choosen article is [Data from August Breach of Amazon Partner Juspay Dumped Online](https://threatpost.com/data-from-august-breach-of-amazon-partner-juspay-dumped-online/162740/). 
+A secutity researcher found a huge data breach from an third party software which deals about online payement handling. Indeed, informations such as name, phone number, bank name were exposed. 
+
 
 The bug seems like local because threat actors used an old, unrecycled Amazon Web Services (AWS) access key to gain unauthorized access to the server. Which mean the bug went in first place from an Amazon issue. 
 
@@ -22,5 +25,33 @@ For the companie, this bug forced them to enhence their API and revalidate some 
 
 This bug showed us the importance of alerte in a project bug this also showed that a review of old functionnaliie is very important for old project that had updates.
 
+
+### Question 2
+The choosen issue is [StackOverflowError in SetUniqueList.add() when it receives itself](https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-701?filter=doneissues).
+It's a local bug that happen in a class which implements List but without duplicates elements (such as a Set).
+The bug was detected by a unit test and it's a StackOverflowError happening in SetUniqueList.add() when it receives itself such as following :
+```java
+test() {        
+   SetUniqueList l = new SetUniqueList(new LinkedList<Object>()) ;        
+   l.add((Object) l) ;    
+}
+```
+SetUniqueList has a Set attribute, the method is recursive but it is called before adding the object to the set. To correct this problem, the object is first added to the set before recursion is called.
+```java
+@Override
+public void add(final int index, final E object) {
+
+    // adds element if it is not contained already
+    if (set.contains(object) == false) {
+-       super.add(index, object);
+        set.add(object);
++       super.add(index, object);
+    }
+}
+```
+Futhermore new tests have been added to ensure that the bug is detected if it reappears in the future.
+
+
 Source : https://threatpost.com/data-from-august-breach-of-amazon-partner-juspay-dumped-online/162740/
+
 
