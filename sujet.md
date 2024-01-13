@@ -16,6 +16,7 @@
 The choosen article is [Data from August Breach of Amazon Partner Juspay Dumped Online](https://threatpost.com/data-from-august-breach-of-amazon-partner-juspay-dumped-online/162740/). 
 A secutity researcher found a huge data breach from an third party software which deals about online payement handling. Indeed, informations such as name, phone number, bank name were exposed. 
 
+
 The bug seems like local because threat actors used an old, unrecycled Amazon Web Services (AWS) access key to gain unauthorized access to the server. Which mean the bug went in first place from an Amazon issue. 
 
 The bug sum up by unhotorized use of data which triggered an alerte from Juspay due to an overuse of internal ressources.
@@ -23,6 +24,7 @@ The bug sum up by unhotorized use of data which triggered an alerte from Juspay 
 For the companie, this bug forced them to enhence their API and revalidate some key. Futhermore they lost a lot of customer confident. For the customers, their info has been lost in world wide web and the info came to them a long time after the issue has been discovered. The society minimzed the leak which was actually a big loss of data.
 
 This bug showed us the importance of alerte in a project bug this also showed that a review of old functionnaliie is very important for old project that had updates.
+
 
 ### Question 2
 The choosen issue is [StackOverflowError in SetUniqueList.add() when it receives itself](https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-701?filter=doneissues).
@@ -48,3 +50,8 @@ public void add(final int index, final E object) {
 }
 ```
 Futhermore new tests have been added to ensure that the bug is detected if it reappears in the future.
+
+
+Source : https://threatpost.com/data-from-august-breach-of-amazon-partner-juspay-dumped-online/162740/
+
+
